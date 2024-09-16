@@ -6,21 +6,20 @@ const Hero = () => {
   return (
     <>
     <div  className='bg-cover bg-no-repeat '
-     style={{backgroundImage:`url(${require("../assets/cook.jpg")})`,
-    width:"100%",height:"70vh"}}
+     style={{backgroundImage:`url(${require("../assets/cook.jpg")})`,}}
    >
-        <h1 className='head text-6xl font-extrabold text-[#006D5B] text-center p-9'>Simple Recipes For <br/> Incredible Deliciousness</h1>
+        <h1 className='head flex justify-center items-center lg:text-6xl ssm:text-6xl font-extrabold text-[#006D5B] text-center lg:p-9 ssm:p-7'>Simple Recipes For <br/> Incredible Deliciousness</h1>
 
-        <div className='flex flex-col justify-center items-center mt-10'>
-            <h3 className='text-4xl font-bold'>Explore our Delicious Recipes</h3>
+        <div className='flex flex-col justify-center items-center mt-12'>
+            <h3 className='lg:text-4xl ssm:text-3xl font-bold mb-5'>Explore our Delicious Recipes</h3>
 
-            <div className="flex items-center mb-4">
-    <div className="relative">
+            <div className="flex items-center mb-4 mt-5 ">
+    <div className="relative w-9/12">
         <input 
             type="text" 
             name="search" 
             placeholder="Search" 
-            className="pl-10 py-2 border rounded outline-dotted outline-2 outline-offset-2 outline-cyan-500" 
+            className="pl-10 py-2 border rounded-2xl outline-dotted outline-2 outline-offset-2 outline-teal-500 " 
         />
         <FaSearchPlus 
             size={20} 
