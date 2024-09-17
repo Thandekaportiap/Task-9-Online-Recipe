@@ -1,6 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
+
+
 .head {
   font-family: "Jacques Francois Shadow", serif;
+}
+
+.herobar {
+  font-family: "Sofadi One", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }

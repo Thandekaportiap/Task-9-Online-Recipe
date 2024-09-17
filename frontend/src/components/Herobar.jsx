@@ -1,8 +1,8 @@
 import React from 'react'
 import Main from '../assets/main.jpg'
-import Appetizing from '../assets/appetizing.jpeg'
+import Appetizing from '../assets/medium.jpg'
 import Dessert from '../assets/dessert2.jpg'
-import Traditional from '../assets/zulu.jpg'
+import Traditional from '../assets/maxican.jpg'
 
 const Herobar = () => {
 
@@ -31,10 +31,10 @@ const Herobar = () => {
     
     return (
         <>
-            <div className='bg-[#006D5B] text-white w-full h-1/4  lg:flex lg:flex-row ssm:flex ssm:flex-col'>
+            <div className='bg-[#006D5B] text-white w-full h-1/5  lg:flex lg:flex-row ssm:flex ssm:flex-col justify-center items-center ssm:m-4'>
                 {
                     list.map((item) => (
-                        <div key={item.id} className="card bg-base-100 w-96 shadow-xl">
+                        <div key={item.id} className="card bg-base-100 w-96 shadow-xl my-2 mx-4 ">
                             <figure className="px-10 pt-10">
                                 <img
                                     src={item.url} size='20px'
@@ -42,9 +42,9 @@ const Herobar = () => {
                                     className="rounded-xl " />
                             </figure>
                             <div className="card-body items-center text-center">
-                                <h2 className="card-title">{item.title}</h2>
+                                <h2 className="herobar card-title text-3xl my-3">{item.title}</h2>
                                 <div className="card-actions">
-                                    <button className="bg-white text-[#006D5B] py-2 px-4">More!</button>
+                                    <button className="bg-white text-[#006D5B] py-2 px-4 rounded-lg">More!</button>
                                 </div>
                             </div>
                         </div>

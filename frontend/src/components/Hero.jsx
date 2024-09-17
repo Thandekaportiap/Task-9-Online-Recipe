@@ -6,14 +6,14 @@ const Hero = () => {
   return (
     <>
     <div  className='bg-cover bg-no-repeat '
-     style={{backgroundImage:`url(${require("../assets/cook.jpg")})`,}}
+     style={{backgroundImage:`url(${require("../assets/cook.jpg")})`,height:"70vh"}}
    >
         <h1 className='head flex justify-center items-center lg:text-6xl ssm:text-6xl font-extrabold text-[#006D5B] text-center lg:p-9 ssm:p-7'>Simple Recipes For <br/> Incredible Deliciousness</h1>
 
         <div className='flex flex-col justify-center items-center mt-12'>
             <h3 className='lg:text-4xl ssm:text-3xl font-bold mb-5'>Explore our Delicious Recipes</h3>
 
-            <div className="flex items-center mb-4 mt-5 ">
+            <div className="flex items-center mb-4 mt-7 ">
     <div className="relative w-9/12">
         <input 
             type="text" 

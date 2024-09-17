@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; // Import React and useState hook
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; 
 import { Link } from 'react-router-dom';
+import Logo from '../assets/logo.jpeg'
 
 
 const Navbar = ({ userId, onLogout }) => {
@@ -15,15 +16,16 @@ const Navbar = ({ userId, onLogout }) => {
     return (
         <>
             {/* Main Navigation Bar */}
-            <nav className='bg-slate-100  w-full flex justify-between items-center h-20 mx-auto px-5'>
+            <nav className='bg-slate-100   flex justify-between items-center h-20 mx-auto px-5'>
                 
-                <h1 className="text-2xl">Logo</h1>
+                <img src={Logo} alt="Logo"  
+                className='h-12 w-16'/>
                 {/* Desktop Navigation Links */}
                 <ul className='hidden md:flex space-x-6 text-xl  font-semibold'>
 
-                   <li className='hover:text-[#006D5B]'> <Link to={"/"}> Home </Link> </li>
-                   <li className='hover:text-[#006D5B]'> <Link to={"/about-us"}> Recipes </Link> </li>
-                    <li className='hover:text-[#006D5B]'><Link to={"/contact-us"}> OurBrand</Link></li>
+                   <li className='hover:text-[#006D5B] active:bg-teal-700'> <Link to={"/"}> Home </Link> </li>
+                   <li className='hover:text-[#006D5B]'> <Link to={"/RecipeList"}> Recipes </Link> </li>
+                    <li className='hover:text-[#006D5B]'><Link to={"/AddNew"}> OurBrand</Link></li>
                     {/* <li><Link to={"/Homelist"}> Homelist </Link></li> */}
                    
                 </ul>
