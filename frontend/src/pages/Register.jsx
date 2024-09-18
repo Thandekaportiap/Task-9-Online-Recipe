@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
 import { FaRegUser } from "react-icons/fa6";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineAttachEmail } from "react-icons/md";
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
+
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +14,8 @@ const RegisterPage = () => {
     confirmpassword: ''
   });
   const [errors, setErrors] = useState({});
-  const [valid, setValid] = useState(true)
+  const [valid, setValid] = useState(true);
+  const navigate = useNavigate()
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -22,13 +26,39 @@ const RegisterPage = () => {
       isvalid = false;
       validationErrors.username = "Username is required"
     }
+    // Email Validation
     if(formData.email === "" || formData.email === null) {
       isvalid = false;
-      validationErrors.username = "Email is required"
+      validationErrors.email = "Email is required"
     } else if(!/\S+@\S+\.\S+/.test(formData.email)) {
       isvalid = false;
       validationErrors.email = "Email is not valid"
     } 
+    // Password Validation
+    if(formData.password === "" || formData.password === null) {
+      isvalid = false;
+      validationErrors.password = "Password is required"
+    } else if(formData.password.length < 6) {
+      isvalid = false;
+      validationErrors.password = "Password length must be at least 6 char"
+    } 
+    // Confirm Password Validation
+    if(formData.confirmpassword !== formData.password){
+      isvalid = false;
+      validationErrors.password = "Password not match"
+    }
+    setErrors(validationErrors)
+    setValid(isvalid)
+
+    if(Object.keys(validationErrors).length === 0){
+      // alert("Registered Successfully")
+      axios.post('http://localhost:8000/users', formData)
+      .then(result => {
+        alert("Registered Successfully")
+        navigate('/Login')
+      })
+      .catch(err => console.log(err))
+    }
   }
 
 
@@ -37,6 +67,12 @@ const RegisterPage = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-[#006D5B] lg:w-96 ssm:w-64"> 
         <h2 className="text-2xl font-semibold mb-6 text-center">Register Page</h2>
         <p className="text-gray-600 mb-8 text-center">Create your new account </p>
+        {
+          valid ? <></> :
+          <span>
+            {errors.username}; {errors.email}; {errors.password}; {errors.confirmpassword}
+          </span>
+        }
         <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="username" className="block text-gray-700">Username</label>
