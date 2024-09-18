@@ -1,10 +1,10 @@
 import React, { useState } from 'react'; // Import React and useState hook
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; 
 import { Link } from 'react-router-dom';
-import Logo from '../assets/logo.jpeg'
+import Logo from '../assets/cook-book.png'
 
 
-const Navbar = ({ userId, onLogout }) => {
+const Navbar = ({ id, onLogout }) => {
     // State to handle the navbar's open/close status
     const [openNav, setOpenNav] = useState(true);
 
@@ -25,13 +25,13 @@ const Navbar = ({ userId, onLogout }) => {
 
                    <li className='hover:text-[#006D5B] active:bg-teal-700'> <Link to={"/"}> Home </Link> </li>
                    <li className='hover:text-[#006D5B]'> <Link to={"/RecipeList"}> Recipes </Link> </li>
-                    <li className='hover:text-[#006D5B]'><Link to={"/AddNew"}> OurBrand</Link></li>
+                    <li className='hover:text-[#006D5B]'><Link to={"/AddNew"}> Add New</Link></li>
                     {/* <li><Link to={"/Homelist"}> Homelist </Link></li> */}
                    
                 </ul>
                 
                 {/* Desktop Buttons */}
-                {userId ? (
+                {id ? (
                     <>
                     <div className='hidden space-x-4 md:flex'>
                     <button onClick={onLogout} className="bg-red-500 px-4 py-2 rounded">
@@ -62,13 +62,13 @@ const Navbar = ({ userId, onLogout }) => {
                     {/* Mobile Navigation Links */}
                     <ul className='block pt-8 space-y-4'>
                         <li className='border-b border-[#006D5B]'> <Link to={"/"}> Home </Link>  </li>
-                        <li className='border-b border-[#006D5B]'> <Link to={"/about-us"}> About Us </Link>  </li>
-                        <li className='border-b border-[#006D5B]'> <Link to={"/contact-us"}> Contact Us </Link> </li>
+                        <li className='border-b border-[#006D5B]'> <Link to={"/RecipeList"}> About Us </Link>  </li>
+                        <li className='border-b border-[#006D5B]'> <Link to={"/AddNew"}> Contact Us </Link> </li>
                         {/* <li className='border-b border-[#006D5B]'> <Link to={"/Homelist"}> Homelist </Link> </li> */}
                     </ul>
                     
                     {/* Mobile Buttons */}
-                    {userId ? (
+                    {id ? (
                     <>
                     <button onClick={onLogout} className="bg-red-500 px-4 py-2 rounded">
                       Logout

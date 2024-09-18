@@ -5,7 +5,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -40,8 +40,10 @@ const Login = () => {
       result.data.map(user => {
         if(user.username === formData.username) {
           if(user.password === formData.password){
-            alert("Login Successfully")
+            alert("Login Successfully"+ user.id )
             navigate('/RecipeList')
+            console.log(user)
+            onLogin(user.id)
           } else {
             isvalid = false;
             validationErrors.password = "Wrong Password; "
@@ -76,6 +78,7 @@ const Login = () => {
               style={{ borderColor: '#006D5B' }} 
             />
           </div>
+          {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block text-gray-700">Password</label>
@@ -89,19 +92,12 @@ const Login = () => {
               style={{ borderColor: '#006D5B' }} 
             />
           </div>
+          {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
         </div>
         <div className="flex items-center mb-6">
           <input type="checkbox" id="rememberMe" className="mr-2" />
           <label htmlFor="rememberMe" className="text-gray-700">Remember Me</label>
         </div>
-
-        {
-          valid ? <></> :
-          <span>
-            {errors.username}; {errors.password}; 
-          </span>
-        }
-
         <button 
           className=" transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[white] hover:text-[#006D5B] hover:border border-[#006D5B] duration-300 
            w-full py-2 mt-4 bg-[#006D5B] text-whitesmoke font-semibold rounded"

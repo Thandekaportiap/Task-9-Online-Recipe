@@ -1,9 +1,13 @@
 
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const AddNew = () => {
+const AddNew = ({ id }) => {
+    console.log(id)
+
     const [recipeName, setRecipeName] = useState('');
     const [recipePicture, setRecipePicture] = useState(null);
+    const [preview, setPreview] = useState(null);
     const [ingredients, setIngredients] = useState('');
     const [instructions, setInstructions] = useState('');
     const [category, setCategory] = useState('');
@@ -11,17 +15,47 @@ const AddNew = () => {
     const [cookingTime, setCookingTime] = useState('');
     const [servings, setServings] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleFileChange = (event) => {
+        const selectedFile = event.target.files[0];
+        setRecipePicture(selectedFile);
+        if (selectedFile && selectedFile.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+            };
+            reader.readAsDataURL(selectedFile);
+        } else {
+            setPreview(null);
+        }
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log({ recipeName, recipePicture, ingredients, instructions, category, preparationTime, cookingTime, servings });
+
+        const newRecipe = {
+            userId:id,
+            recipeName,
+            ingredients,
+            instructions,
+            category,
+            preparationTime,
+            cookingTime,
+            servings,
+            preview
+        };
+
+        axios.post('http://localhost:8000/recipes', newRecipe)
+      .then(result => {
+        alert("Successfully")
+        navigate('/Login')
+      })
     };
 
     return (
-       <>
-       <div className='bg-cover bg-no-repeat h-fit'
-     style={{backgroundImage:`url(${require("../assets/download.jpeg")})`}}>
-       <div className="bg-white-smoke p-8 rounded shadow-md max-w-lg mx-auto">
+        <section  className='bg-cover bg-no-repeat '
+     style={{backgroundImage:`url(${require("../assets/download.jpeg")})`}}
+   >
+        <div className="addnew  p-8 rounded shadow-md max-w-lg mx-auto">
             <h2 className="text-2xl font-bold text-center mb-6" style={{ color: '#006D5B' }}>Add New Recipe</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -39,11 +73,14 @@ const AddNew = () => {
                     <label className="block text-gray-700">Recipe Picture</label>
                     <input
                         type="file"
-                        onChange={(e) => setRecipePicture(e.target.files[0])}
+                        onChange={handleFileChange} // Use the new handler
                         className="w-full border rounded"
                         accept="image/*"
                         required
                     />
+                    {/* {preview && (
+                        <img src={preview} alt="Image Preview" className="mt-4 h-32 w-32 object-cover" />
+                    )} */}
                 </div>
 
                 <div className="mb-4">
@@ -125,14 +162,12 @@ const AddNew = () => {
                 <button
                     type="submit"
                     className="w-full bg-[#006D5B] text-white py-2 rounded hover:bg-green-700 transition duration-300"
-                    >
-                        Add Recipe
-                    </button>
-                </form>
-            </div>
-       </div>
-       </>
-        );
-    };
-    
+                >
+                    Add Recipe
+                </button>
+            </form>
+        </div>
+        </section>
+    );
+};
     export default AddNew;

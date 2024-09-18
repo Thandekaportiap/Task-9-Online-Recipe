@@ -14,19 +14,27 @@ import AddNew from './pages/AddNew';
 
 
 function App() {
-  
+  const [id, setId] = useState(null); // State to hold current user's ID
+
+  const handleLogin = (id) => {
+    setId(id); // Set the userId upon successful login
+  };
+
+  const handleLogout = () => {
+    setId(null); // Clear the userId on logout
+  };
 
   return (
     <>
       <BrowserRouter>
-   <Navbar/>
+   <Navbar id={id} onLogout={handleLogout}/>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>} />
           <Route path="/Register" element={<RegisterPage />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/RecipeList" element={<RecipeList />} />
-          <Route path="/AddNew" element={<AddNew />} />
+          <Route path="/Login" element={<Login onLogin={handleLogin}/>} />
+          <Route path="/RecipeList" element={<RecipeList id={id} />} />
+          <Route path="/AddNew" element={<AddNew id={id} onLogout={handleLogout} />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
