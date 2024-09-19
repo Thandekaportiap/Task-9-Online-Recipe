@@ -1,12 +1,11 @@
-
 import React from 'react'
+import NoPages from '../assets/nopage.jpg'
 
-const NoPage = () => {
+export default function NoPage() {
   return (
-    <div>
-      page not found
+    <div >
+    
+      <img src={NoPages} alt=""  style={{width:"40%",position:"absolute", left:"30%", top:"20%"}}/>
     </div>
   )
 }
-
-export default NoPage

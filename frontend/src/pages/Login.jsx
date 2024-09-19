@@ -105,7 +105,7 @@ const Login = ({ onLogin }) => {
           Login
         </button>
 
-        <p className="mt-4">If you dont have an Account please <NavLink to={'/Register'}><span className="text-teal-900 text-xl hover:text-3xl">Create An Account</span></NavLink></p>
+        <p className="mt-4">Dont have an Account? <NavLink to={'/Register'}><span className="text-teal-900 text-xl hover:text-3xl">Register</span></NavLink></p>
         </form>
       </div>
     </div>

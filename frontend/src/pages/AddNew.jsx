@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AddNew = ({ id }) => {
     console.log(id)
@@ -14,6 +15,7 @@ const AddNew = ({ id }) => {
     const [preparationTime, setPreparationTime] = useState('');
     const [cookingTime, setCookingTime] = useState('');
     const [servings, setServings] = useState('');
+    const navigate = useNavigate()
 
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
@@ -47,7 +49,7 @@ const AddNew = ({ id }) => {
         axios.post('http://localhost:8000/recipes', newRecipe)
       .then(result => {
         alert("Successfully")
-        navigate('/Login')
+        navigate('/RecipeList')
       })
     };
 
@@ -117,6 +119,7 @@ const AddNew = ({ id }) => {
                         <option value="Dessert">Dessert</option>
                         <option value="Main Course">Main Course</option>
                         <option value="Appetizer">Appetizer</option>
+                        <option value="Appetizer">Traditional</option>
                     </select>
                 </div>
 

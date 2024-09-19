@@ -16,7 +16,7 @@ const Navbar = ({ id, onLogout }) => {
     return (
         <>
             {/* Main Navigation Bar */}
-            <nav className='bg-slate-100   flex justify-between items-center h-20 mx-auto px-5'>
+            <nav className='bg-slate-100 border shadow-teal-700 shadow-md mb-1   flex justify-between items-center h-20 mx-auto px-5'>
                 
                 <img src={Logo} alt="Logo"  
                 className='h-12 w-16'/>

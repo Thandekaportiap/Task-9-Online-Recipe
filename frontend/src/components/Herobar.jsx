@@ -3,6 +3,8 @@ import Main from '../assets/main.jpg'
 import Appetizing from '../assets/medium.jpg'
 import Dessert from '../assets/dessert2.jpg'
 import Traditional from '../assets/maxican.jpg'
+import { Link } from 'react-router-dom'
+import RecipeList from '../pages/RecipeList'
 
 const Herobar = () => {
 
@@ -44,7 +46,7 @@ const Herobar = () => {
                             <div className="card-body items-center text-center">
                                 <h2 className="herobar card-title text-3xl my-3">{item.title}</h2>
                                 <div className="card-actions">
-                                    <button className="bg-white text-[#006D5B] py-2 px-4 rounded-lg">More!</button>
+                                    <Link to={"/RecipeList"}><button className="bg-white text-[#006D5B] py-2 px-4 rounded-lg">More!</button></Link>
                                 </div>
                             </div>
                         </div>
