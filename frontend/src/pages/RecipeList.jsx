@@ -46,7 +46,7 @@ const RecipeList = ({id}) => {
 </div>
       
 
-      <div className='lg:grid lg:grid-cols-3 lg:gap-4 ssm:flex ssm:flex-row justify-center items-center'>
+      <div className='lg:grid lg:grid-cols-3 lg:gap-4 ssm:flex ssm:flex-row justify-center items-center p-4'>
       {filteredRecipes.map(item => (
                    <div class="flex flex-col w-fit mx-auto">
                    <div class="product-card grid grid-cols-1 md:grid-cols-2 gap-10 py-12 lg:pb-8 lg:pt-10">
