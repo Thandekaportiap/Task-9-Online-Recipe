@@ -49,7 +49,7 @@ const Footer = () => {
     </div>
   </nav>
   <aside className='mt-4'>
-    <p>Copyright © {new Date().getFullYear()} - Coded by Thandeka Portia P Mazibuko</p>
+    <p className='text-2xl text-center'>Copyright © {new Date().getFullYear()} - Coded by Thandeka Portia P Mazibuko</p>
   </aside>
 </footer>
   )

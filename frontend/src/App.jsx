@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import Navbar from './components/NavBar'
 import Login from './pages/Login';
-import RegisterPage from './pages/Register';
+import RegisterPage from './pages/RegisterPage';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import Layout from './pages/Layout';
@@ -14,17 +14,19 @@ import AddNew from './pages/AddNew';
 import Privacy from './pages/Privacy';
 import ReadMore from './pages/ReadMore';
 import axios from 'axios';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
-  const [id, setId] = useState(null); // State to hold current user's ID
+//  const { isAuthenticated } = useAuth();
+  const [id, setId] = useState(null); 
 
   const handleLogin = (id) => {
-    setId(id); // Set the userId upon successful login
+    setId(id);
   };
 
   const handleLogout = () => {
-    setId(null); // Clear the userId on logout
+    setId(null); 
   };
 
   const [recipes, setRecipes] = useState([]);
@@ -37,7 +39,7 @@ function App() {
             .catch(error => {
                 console.error("Error fetching data: ", error);
             });
-    }, []);
+    }, []); 
 
   return (
     <>
@@ -49,12 +51,10 @@ function App() {
           <Route path="/Register" element={<RegisterPage />} />
           <Route path="/Privacy" element={<Privacy />} />
           <Route path="/Login" element={<Login onLogin={handleLogin}/>} />
-
           <Route path="RecipeList"  >
             <Route index element={<RecipeList id={id} />}/>
             <Route path=":id" element={<ReadMore  data={recipes}/>}/>
           </Route>
-
           <Route path="/AddNew" element={<AddNew id={id} onLogout={handleLogout} />} />
           <Route path="*" element={<NoPage />} />
         </Route>

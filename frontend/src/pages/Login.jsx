@@ -41,8 +41,8 @@ const Login = ({ onLogin }) => {
         if(user.username === formData.username) {
           if(user.password === formData.password){
             alert("Login Successfully"+ user.id )
+            localStorage.setItem('loggedInUser', user.username); 
             navigate('/RecipeList')
-            console.log(user)
             onLogin(user.id)
           } else {
             isvalid = false;
@@ -53,8 +53,6 @@ const Login = ({ onLogin }) => {
       setErrors(validationErrors)
       setValid(isvalid)
 
-      // alert("Registered Successfully")
-      // navigate('/Login')
     })
     .catch(err => console.log(err))
     

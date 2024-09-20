@@ -69,7 +69,7 @@ const RegisterPage = () => {
         <p className="text-gray-600 mb-8 text-center">Create your new account </p>
         {
           valid ? <></> :
-          <span>
+          <span className='text-red-500 my-2' >
             {errors.username}; {errors.email}; {errors.password}; {errors.confirmpassword}
           </span>
         }
