@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Main from '../assets/main.jpg'
 import Appetizing from '../assets/medium.jpg'
 import Dessert from '../assets/dessert2.jpg'
@@ -6,7 +6,19 @@ import Traditional from '../assets/maxican.jpg'
 import { Link } from 'react-router-dom'
 import RecipeList from '../pages/RecipeList'
 
+
 const Herobar = () => {
+
+    const [categories, setCategories] = useState([]);
+
+        useEffect(() => {
+        const fetchProductCategories = () => {
+                fetch("http://localhost:8000/recipes/categories")
+        .then((res) => res.json())
+        .then((json) => setCategories(json));
+        };
+        fetchProductCategories();
+        }, []);
 
     let list = [
         {

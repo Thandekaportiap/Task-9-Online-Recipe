@@ -11,6 +11,7 @@ const EditModal = ({ item, onClose, onUpdate }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onUpdate(formData);
+        console.log(formData)
     };
 
     return (

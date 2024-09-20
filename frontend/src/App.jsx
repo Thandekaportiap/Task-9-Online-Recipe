@@ -49,11 +49,10 @@ function App() {
           <Route path="/Register" element={<RegisterPage />} />
           <Route path="/Privacy" element={<Privacy />} />
           <Route path="/Login" element={<Login onLogin={handleLogin}/>} />
-          {/* <Route path="/RecipeList" element={<RecipeList id={id} />} />
-          <Route path="/ReadMore" element={<ReadMore id={id} />} /> */}
+
           <Route path="RecipeList"  >
             <Route index element={<RecipeList id={id} />}/>
-            <Route path=":id" element={<ReadMore userId={id} data={recipes}/>}/>
+            <Route path=":id" element={<ReadMore  data={recipes}/>}/>
           </Route>
 
           <Route path="/AddNew" element={<AddNew id={id} onLogout={handleLogout} />} />
