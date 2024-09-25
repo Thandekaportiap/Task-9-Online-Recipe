@@ -20,7 +20,7 @@ Install dependencies
 ```
 Start the react server
 ```bash
-  npm run start
+  npm run dev
 ```
 Back-End
 ```bash
