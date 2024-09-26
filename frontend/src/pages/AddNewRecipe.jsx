@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const AddNew = ({ id }) => {
-    console.log(id)
+const AddNewRecipe = ({ id }) => {
+    // console.log(id)
+
+    if (!id) {
+        return <div className='text-center text-4xl my-6 text-red-700'>Please log-in to add a new recipe!</div>;
+    }
 
     const [recipeName, setRecipeName] = useState('');
     const [recipePicture, setRecipePicture] = useState(null);
@@ -80,9 +84,6 @@ const AddNew = ({ id }) => {
                         accept="image/*"
                         required
                     />
-                    {/* {preview && (
-                        <img src={preview} alt="Image Preview" className="mt-4 h-32 w-32 object-cover" />
-                    )} */}
                 </div>
 
                 <div className="mb-4">
@@ -173,4 +174,4 @@ const AddNew = ({ id }) => {
         </section>
     );
 };
-    export default AddNew;
+    export default AddNewRecipe;

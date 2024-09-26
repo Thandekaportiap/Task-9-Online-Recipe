@@ -10,15 +10,15 @@ import NoPage from './pages/NoPage';
 import Layout from './pages/Layout';
 import Footer from './components/Footer';
 import RecipeList from './pages/RecipeList';
-import AddNew from './pages/AddNew';
+import AddNewRecipe from './pages/AddNewRecipe';
 import Privacy from './pages/Privacy';
 import ReadMore from './pages/ReadMore';
 import axios from 'axios';
-import PrivateRoute from './components/PrivateRoute';
+import CategoryRecipeList from './pages/CategoryRecipeList';
+
 
 
 function App() {
-//  const { isAuthenticated } = useAuth();
   const [id, setId] = useState(null); 
 
   const handleLogin = (id) => {
@@ -55,11 +55,12 @@ function App() {
             <Route index element={<RecipeList id={id} />}/>
             <Route path=":id" element={<ReadMore  data={recipes}/>}/>
           </Route>
-          <Route path="/AddNew" element={<AddNew id={id} onLogout={handleLogout} />} />
+          <Route path="/CategoryRecipeList" element={<CategoryRecipeList id={id} />} />
+          <Route path="/AddNew" element={<AddNewRecipe id={id} onLogout={handleLogout} />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
-      <Footer/>
+      <Footer className='bottom-0'/>
     </BrowserRouter>
     </>
   )
