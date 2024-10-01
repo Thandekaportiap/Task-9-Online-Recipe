@@ -13,6 +13,13 @@
       "email": "ttp@gmail.com",
       "password": "12345698",
       "confirmpassword": "12345698"
+    },
+    {
+      "id": "9f80",
+      "username": "sindiswamazibuko",
+      "email": "thandekaportiap07@gmail.com",
+      "password": "123456789",
+      "confirmpassword": "123456789"
     }
   ],
   "recipes": [

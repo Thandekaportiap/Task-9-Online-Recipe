@@ -25,7 +25,7 @@ const Navbar = ({ id, onLogout }) => {
 
                    <li className='hover:text-[#006D5B] active:bg-teal-700'> <Link to={"/"}> Home </Link> </li>
                    <li className='hover:text-[#006D5B]'> <Link to={"/RecipeList"}> Recipes </Link> </li>
-                    <li className='hover:text-[#006D5B]'><Link to={"/AddNew"}> Add New</Link></li>
+                    <li className='hover:text-[#006D5B]'><Link to={"/AddNew"}> Add New Recipe</Link></li>
                     {/* <li><Link to={"/Homelist"}> Homelist </Link></li> */}
                    
                 </ul>
@@ -57,13 +57,14 @@ const Navbar = ({ id, onLogout }) => {
                 {/* Mobile Navigation Menu */}
                 <div className={!openNav ? 'left-[0%] fixed top-0 w-[60%] bg-slate-100 h-full block pl-4 pt-4 ease-in-out duration-500 md:hidden' : "fixed left-[100%] ease-in-out duration-500"}>
                     {/* Logo in Mobile Menu */}
-                    <h1 className='text-[27px]  font-bold'>logo</h1>
+                    <img src={Logo} alt="Logo"  
+                className='h-12 w-16'/>
                     
                     {/* Mobile Navigation Links */}
                     <ul className='block pt-8 space-y-4'>
                         <li className='border-b border-[#006D5B]'> <Link to={"/"}> Home </Link>  </li>
-                        <li className='border-b border-[#006D5B]'> <Link to={"/RecipeList"}> About Us </Link>  </li>
-                        <li className='border-b border-[#006D5B]'> <Link to={"/AddNew"}> Contact Us </Link> </li>
+                        <li className='border-b border-[#006D5B]'> <Link to={"/RecipeList"}> Recipes </Link>  </li>
+                        <li className='border-b border-[#006D5B]'> <Link to={"/AddNew"}> Add New Recipe</Link> </li>
                         {/* <li className='border-b border-[#006D5B]'> <Link to={"/Homelist"}> Homelist </Link> </li> */}
                     </ul>
                     

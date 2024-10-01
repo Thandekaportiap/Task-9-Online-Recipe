@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardRecipe from '../components/CardRecipe';
+import { useNavigate } from 'react-router-dom';
 
 const CategoryRecipeList = ({id}) => {
 
-    if (!id) {
-        return <div className='text-center text-4xl my-6 text-red-700'>Please log-in first!</div>;
-    }
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!id) {
+            navigate('/Login');
+        }
+    }, [id, navigate]);
 
 
     const [recipes, setRecipes] = useState([]);
