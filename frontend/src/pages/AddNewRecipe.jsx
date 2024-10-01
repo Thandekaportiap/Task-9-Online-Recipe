@@ -1,14 +1,19 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
 
 const AddNewRecipe = ({ id }) => {
     // console.log(id)
 
-    if (!id) {
-        return <div className='text-center text-4xl my-6 text-red-700'>Please log-in to add a new recipe!</div>;
-    }
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!id) {
+            navigate('/Unauthorized');
+        }
+    }, [id, navigate]);
 
     const [recipeName, setRecipeName] = useState('');
     const [recipePicture, setRecipePicture] = useState(null);
@@ -19,7 +24,7 @@ const AddNewRecipe = ({ id }) => {
     const [preparationTime, setPreparationTime] = useState('');
     const [cookingTime, setCookingTime] = useState('');
     const [servings, setServings] = useState('');
-    const navigate = useNavigate()
+   
 
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];

@@ -15,6 +15,7 @@ import Privacy from './pages/Privacy';
 import ReadMore from './pages/ReadMore';
 import axios from 'axios';
 import CategoryRecipeList from './pages/CategoryRecipeList';
+import Unauthorized from './pages/Unauthorized';
 
 
 
@@ -50,6 +51,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path="/Register" element={<RegisterPage />} />
           <Route path="/Privacy" element={<Privacy />} />
+          <Route path="/Unauthorized" element={<Unauthorized />} />
           <Route path="/Login" element={<Login onLogin={handleLogin}/>} />
           <Route path="RecipeList"  >
             <Route index element={<RecipeList id={id} />}/>
