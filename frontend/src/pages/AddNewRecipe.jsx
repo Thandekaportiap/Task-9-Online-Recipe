@@ -84,7 +84,7 @@ const AddNewRecipe = ({ id }) => {
                     <label className="block text-gray-700">Recipe Picture</label>
                     <input
                         type="file"
-                        onChange={handleFileChange} // Use the new handler
+                        onChange={handleFileChange} 
                         className="w-full border rounded"
                         accept="image/*"
                         required
