@@ -52,7 +52,7 @@ const RegisterPage = () => {
 
     if(Object.keys(validationErrors).length === 0){
       // alert("Registered Successfully")
-      axios.post('http://localhost:8000/users', formData)
+      axios.post('https://task-9-online-recipe-2.onrender.com/users', formData)
       .then(result => {
         alert("Registered Successfully")
         navigate('/Login')

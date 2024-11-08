@@ -10,7 +10,7 @@ const Herobar = () => {
 
     useEffect(() => {
         const fetchProductCategories = () => {
-            fetch("http://localhost:8000/recipes/categories")
+            fetch("https://task-9-online-recipe-2.onrender.com/product_categories")
                 .then((res) => res.json())
                 .then((json) => setCategories(json));
         };

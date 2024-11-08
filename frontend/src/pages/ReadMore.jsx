@@ -40,7 +40,7 @@ const ReadMore = () => {
 
     const handleUpdate = async (updatedInfo) => {
         try {
-            const response = await axios.put(`http://localhost:8000/recipes/${updatedInfo.id}`, updatedInfo);
+            const response = await axios.put(`https://task-9-online-recipe-2.onrender.com/recipes/${updatedInfo.id}`, updatedInfo);
             Swal.fire('Updated!', 'Your recipe has been updated.', 'success');
             setRecipe(response.data);
             handleCloseModal();

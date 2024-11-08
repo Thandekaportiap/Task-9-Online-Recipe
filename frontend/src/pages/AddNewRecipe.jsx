@@ -55,7 +55,7 @@ const AddNewRecipe = ({ id }) => {
             preview
         };
 
-        axios.post('http://localhost:8000/recipes', newRecipe)
+        axios.post('https://task-9-online-recipe-2.onrender.com/recipes', newRecipe)
       .then(result => {
         alert("Successfully")
         navigate('/RecipeList')

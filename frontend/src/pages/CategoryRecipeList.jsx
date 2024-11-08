@@ -24,7 +24,7 @@ const CategoryRecipeList = ({id}) => {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/recipes?category=${category}`);
+                const response = await axios.get(`https://task-9-online-recipe-2.onrender.com/recipes?category=${category}`);
                 setRecipes(response.data);
             } catch (err) {
                 setError(err);

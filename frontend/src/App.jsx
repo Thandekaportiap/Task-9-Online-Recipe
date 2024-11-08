@@ -33,7 +33,7 @@ function App() {
   const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/recipes?userId=${id}`)
+        axios.get(`https://task-9-online-recipe-2.onrender.com/recipes?userId=${id}`)
             .then(result => {
                 setRecipes(result.data || []);
             })
