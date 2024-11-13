@@ -32,7 +32,7 @@ const RecipeList = ({id}) => {
 
   return (
     <>
-<section>
+<section className='min-h-screen'>
 <div className='p-6'>
 <TypewriterEffect/>
 </div>
