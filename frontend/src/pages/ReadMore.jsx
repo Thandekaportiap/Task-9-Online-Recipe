@@ -18,7 +18,7 @@ const ReadMore = () => {
     useEffect(() => {
         const fetchRecipe = async () => {
             try {
-                const result = await axios.get(`http://localhost:8000/recipes/${id}`);
+                const result = await axios.get(`https://task-9-online-recipe-2.onrender.com/recipes/${id}`);
                 setRecipe(result.data);
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -64,7 +64,7 @@ const ReadMore = () => {
 
         if (result.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:8000/recipes/${recipeId}`);
+                await axios.delete(`https://task-9-online-recipe-2.onrender.com/recipes/${recipeId}`);
                 Swal.fire('Deleted!', 'Your recipe has been deleted.', 'success');
                 setRecipe(null); // Clear the recipe state to trigger "No recipe found"
             } catch (error) {
@@ -98,7 +98,7 @@ const ReadMore = () => {
     }
 
     return (
-        <section className='h-fit'>
+        <section className='h-full mb-20'>
             <div key={recipe.id} className="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:max-w-5xl lg:mt-12 xl:max-w-6xl">
                 <div className="w-full h-64 lg:w-1/2 lg:h-auto">
                     <img className="h-full w-full object-cover rounded-lg" src={recipe.preview} alt={recipe.recipeName} />

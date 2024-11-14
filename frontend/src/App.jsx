@@ -46,6 +46,7 @@ function App() {
     <>
       <BrowserRouter>
    <Navbar id={id} onLogout={handleLogout}/>
+   <div className='min-h-screen'>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>} />
@@ -62,6 +63,7 @@ function App() {
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
+      </div>
       <Footer className='bottom-0'/>
     </BrowserRouter>
     </>
