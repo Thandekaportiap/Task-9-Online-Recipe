@@ -24,20 +24,21 @@ const Hero = () => {
           </h3>
 
           <div className="flex items-center justify-center w-full mt-4">
-            <div className="relative w-11/12 max-w-md">
-              <input
-                type="text"
-                name="search"
-                placeholder="Search"
-                className="pl-10 py-2 w-full border rounded-2xl 
-                           outline-dotted outline-2 outline-offset-2 outline-teal-700 text-sm"
-              />
-              <FaSearchPlus
-                size={20}
-                color="#006D5B"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2"
-              />
-            </div>
+          <div className="relative w-full max-w-md mx-auto mt-4 sm:mt-6">
+  <input
+    type="text"
+    name="search"
+    placeholder="Search"
+    className="pl-10 py-2 w-full border rounded-2xl 
+               outline-dotted outline-2 outline-offset-2 outline-teal-700 text-sm"
+  />
+  <FaSearchPlus
+    size={20}
+    color="#006D5B"
+    className="absolute left-3 top-1/2 transform -translate-y-1/2"
+  />
+</div>
+
           </div>
         </div>
       </div>
