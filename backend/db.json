@@ -56,75 +56,7 @@
     }
   ], 
   "shoppingLists": [
-    {
-      "id": "5f26",
-      "listName": "Party ",
-      "items": [
-        {
-          "name": "cakes",
-          "category": "Grocery",
-          "notes": "none ",
-          "quantity": "1"
-        }
-      ]
-    },
-    {
-      "id": "8ca5",
-      "listName": "baking",
-      "items": [
-        {
-          "name": "flour",
-          "category": "Grocery",
-          "notes": "golden cloud",
-          "quantity": "1"
-        },
-        {
-          "name": "eggs ",
-          "category": "Grocery",
-          "notes": "x-large",
-          "quantity": "6"
-        },
-        {
-          "name": "milk",
-          "category": "Household",
-          "notes": "full cream",
-          "quantity": "1"
-        }
-      ]
-    },
-    {
-      "id": "c87f",
-      "listName": "black friday ",
-      "items": [
-        {
-          "name": "TV",
-          "category": "Household",
-          "notes": "KIC",
-          "quantity": "1"
-        },
-        {
-          "id": 1731655999334,
-          "name": "Smartphone",
-          "quantity": 1,
-          "notes": "Iphone 12",
-          "category": "Other"
-        },
-        {
-          "id": 1731656043692,
-          "name": "watch ",
-          "quantity": 2,
-          "notes": "smart",
-          "category": "Other"
-        },
-        {
-          "id": 1731656262908,
-          "name": "watch 2",
-          "quantity": 2,
-          "notes": "smart",
-          "category": "Other"
-        }
-      ]
-    }
+   
   ]
   
 }
